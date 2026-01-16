@@ -1,117 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Akash Singh Manhas - 1337 Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Akash | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="scanlines"></div>
+<body class="dark">
 
-    <div class="terminal">
-        <header>
-            <div class="prompt">
-                <span class="user">guest@akash-portfolio:~$</span> whoami
-            </div>
-            <h1>Akash Singh Manhas</h1>
-            <div class="contact">
-                <span>Portfolio:</span> Akash Singh Manhas<br/>
-                <span>Email:</span> akashmanhas3785@gmail.com<br/>
-                <span>Github:</span> Redcoffin<br/>
-                <span>Mobile:</span> +91-9797150027
-            </div>
-        </header>
+  <nav>
+    <h2>Akash</h2>
+    <button id="themeToggle">🌙</button>
+  </nav>
 
-        <section>
-            <h2>CAREER OBJECTIVE</h2>
-            <p>Enthusiastic and motivated IT fresher currently undergoing training in Cloud Computing and AI from Jetking, with hands-on exposure to networking (CCNA), Linux (RHEL), cloud platforms (AWS, Azure), and server management. Eager to apply my knowledge in a dynamic IT environment and contribute to innovative cloud-based solutions.</p>
-        </section>
+  <section class="hero">
+    <h1 class="animate">Akash Singh Manhas</h1>
+    <p class="animate delay">Linux • Networking • Cyber Security</p>
+    <a href="resume.pdf" download class="btn animate delay2">Download Resume</a>
+  </section>
 
-        <section>
-            <h2>EDUCATION</h2>
-            <div class="entry">
-                <span class="date">[Mar 2025 - Oct 2025]</span> Master in Cloud Computing with AI — Jetking Jammu Learning Centre, Jammu, India
-            </div>
-            <div class="entry">
-                <span class="date">[Apr 2019 - Mar 2021]</span> Diploma in Hotel Management — Sumedha Institute of Management, Dwaraka Nagar, Visakhapatnam
-            </div>
-            <div class="entry">
-                <span class="date">[Aug 2015 - Jul 2019]</span> Bachelor of Commerce (55%) — Govt. Shri Pratap Memorial Rajput College of Commerce, Jammu, India
-            </div>
-            <div class="entry">
-                <span class="date">[Apr 2014 - May 2015]</span> Higher Secondary Certificate (HSC) CGPA: 6.7 — Kendriya Vidyalaya No.1 Gandhi Nagar, Jammu
-            </div>
-            <div class="entry">
-                <span class="date">[Apr 2012 - May 2013]</span> Secondary School Certificate (SSC) CGPA: 6.2 — Kendriya Vidyalaya No.1 Gandhi Nagar, Jammu
-            </div>
-        </section>
+  <section class="section animate">
+    <h2>About Me</h2>
+    <p>
+      Fresher passionate about Linux, Networking and Ethical Hacking.
+      Building hands-on skills with real labs and projects.
+    </p>
+  </section>
 
-        <section>
-            <h2>TECHNICAL SKILLS</h2>
-            <div class="skill-block">
-                <span class="category">[Networking]</span><br/>
-                • CCNA (Routing & Switching Basics, IP Configuration, Subnetting, VLANs)
-            </div>
-            <div class="skill-block">
-                <span class="category">[Operating Systems]</span><br/>
-                • RHEL (Linux Shell, User Management, File Permissions, Networking Commands)
-            </div>
-            <div class="skill-block">
-                <span class="category">[Cloud Platforms]</span><br/>
-                • AWS: EC2, S3, IAM, VPC basics<br/>
-                • Microsoft Azure: Virtual Machines, Resource Groups, Azure Storage
-            </div>
-            <div class="skill-block">
-                <span class="category">[Tools & Technologies]</span><br/>
-                • Git, Terminal, Visual Studio Code, Remote Desktop, Putty
-            </div>
-            <div class="skill-block">
-                <span class="category">[Other]</span><br/>
-                • Basic Scripting (Bash), Troubleshooting, Cloud Deployment Concepts
-            </div>
-        </section>
-
-        <section>
-            <h2>CERTIFICATIONS & TRAINING</h2>
-            <div class="entry">
-                <span class="date">[Aug 2025]</span> Cloud Computing & AI – Jetking<br/>
-                 • Modules: CCNA Networking, Red Hat Linux (RHEL), AWS Cloud, Microsoft Azure<br/>
-                 • Hands-on lab: cloud servers, VMs, network configs<br/>
-                 • Exposure to AI concepts & cloud integration
-            </div>
-            <div class="entry">CCNA (Cisco Certified Network Associate) – Jetking</div>
-            <div class="entry">Red Hat Enterprise Linux (RHEL) – Jetking</div>
-            <div class="entry">AWS Cloud Practitioner / Foundation – Jetking</div>
-            <div class="entry">Microsoft Azure Server Fundamentals – Jetking</div>
-        </section>
-
-        <section>
-            <h2>PROJECTS / LAB WORK</h2>
-            <div class="entry">
-                <strong>AWS EC2 Deployment Project</strong><br/>
-                Created & configured EC2 instance, installed Apache, hosted basic HTML page, managed security groups via AWS Console.
-            </div>
-            <div class="entry">
-                <strong>RHEL User Management Lab</strong><br/>
-                Practiced Linux user/group management, permissions, basic shell scripting.
-            </div>
-            <div class="entry">
-                <strong>Cisco Packet Tracer Lab</strong><br/>
-                Simulated small office network: routers, switches, IP addressing, VLAN setup.
-            </div>
-        </section>
-
-        <section>
-            <h2>EXTRA CURRICULAR ACTIVITIES</h2>
-            <div class="entry">2025* : Gym, Running</div>
-            <div class="entry">2022 : Total 35 KM run marathons – India</div>
-            <div class="entry">2020 : Total 15 KM run marathons – J&K</div>
-            <div class="entry">2018* : Raipur Cricket Club – J&K</div>
-        </section>
-
-        <div class="cursor">_</div>
+  <section class="section animate">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Linux Server Setup</h3>
+        <p>Apache, HTTPS, SELinux, VirtualBox labs</p>
+      </div>
+      <div class="card">
+        <h3>Network Lab</h3>
+        <p>IP, DNS, Ping, SSH, Firewall practice</p>
+      </div>
+      <div class="card">
+        <h3>GitHub Pages Portfolio</h3>
+        <p>Modern animated portfolio website</p>
+      </div>
     </div>
+  </section>
+
+  <section class="section animate">
+    <h2>Contact</h2>
+    <p>Email: your@email.com</p>
+    <p>GitHub: github.com/redcoffin</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Akash Singh Manhas</p>
+  </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
