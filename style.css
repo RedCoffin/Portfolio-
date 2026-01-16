@@ -1,140 +1,232 @@
-/* styles.css - Hacker / Terminal Style Portfolio */
+/* styles.css - Attractive Modern Portfolio Style */
 
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
-* {
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    line-height: 1.6;
 }
 
-body {
-    background-color: #000000;
-    color: #00ff41;              /* Classic matrix green */
-    font-family: 'VT323', monospace;
-    font-size: 1.3rem;            /* Larger for terminal feel */
-    line-height: 1.4;
-    min-height: 100vh;
-    padding: 1rem 1.5rem;
-    background-image: 
-        linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-    background-size: 4px 4px;     /* subtle scanline grid */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-header {
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
     text-align: center;
-    padding: 2rem 0 1.5rem;
-    border-bottom: 2px solid #00ff41;
-    margin-bottom: 2rem;
+    padding: 60px 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    font-size: 3.2rem;
-    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
-    letter-spacing: 4px;
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-header p {
-    font-size: 1.4rem;
-    margin: 0.4rem 0;
-    opacity: 0.9;
-}
-
-section {
-    max-width: 1000px;
-    margin: 0 auto 3rem;
-    padding: 1.5rem;
-    border: 1px solid #00ff41;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
-}
-
-h2 {
-    color: #00ff41;
-    font-size: 2.2rem;
-    margin-bottom: 1.2rem;
-    border-bottom: 1px dashed #00ff41;
-    padding-bottom: 0.5rem;
-    text-shadow: 0 0 8px #00ff41;
+.header h1 {
+    font-size: 3em;
+    margin: 0 0 10px;
+    text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-ul {
-    list-style-type: none;
-    padding-left: 1.2rem;
+.subtitle {
+    font-size: 1.2em;
+    margin: 0 0 20px;
+    opacity: 0.9;
 }
 
-ul li {
-    margin-bottom: 1rem;
+.contact-info p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+/* Sections */
+.section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.section h2 {
+    font-size: 2em;
+    color: #764ba2;
+    margin-bottom: 20px;
     position: relative;
-    padding-left: 1.8rem;
+    padding-bottom: 10px;
 }
 
-ul li::before {
-    content: ">";
+.section h2::after {
+    content: '';
     position: absolute;
+    bottom: 0;
     left: 0;
-    color: #00ff41;
-    opacity: 0.8;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 3px;
 }
 
-ul li ul {
-    padding-left: 2rem;
-    margin-top: 0.6rem;
+/* Education Grid */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-ul li ul li::before {
-    content: "-";
+.education-item {
+    background: #f8f9fc;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background 0.3s;
 }
 
-a {
-    color: #00ff9d;
-    text-decoration: none;
-    border-bottom: 1px dotted #00ff9d;
+.education-item:hover {
+    background: #e9ecef;
 }
 
-a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px #00ff9d;
-    background: rgba(0, 255, 157, 0.1);
+.education-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    color: #667eea;
 }
 
-/* Extra glow on important elements */
-strong {
-    color: #ffffff;
-    text-shadow: 0 0 6px #00ff41;
+.date {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
 }
 
-/* Mobile adjustments */
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background: #f8f9fc;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.skill-category:hover {
+    background: #e9ecef;
+}
+
+.skill-category h3 {
+    font-size: 1.4em;
+    color: #764ba2;
+    margin-bottom: 10px;
+}
+
+.skill-category ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.skill-category li {
+    margin-bottom: 8px;
+}
+
+/* Certifications */
+.cert-list {
+    list-style: none;
+}
+
+.cert-list li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fc;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.cert-list li:hover {
+    background: #e9ecef;
+}
+
+.cert-list h3 {
+    font-size: 1.3em;
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background: #f8f9fc;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.project-item:hover {
+    background: #e9ecef;
+    transform: scale(1.02);
+}
+
+.project-item h3 {
+    font-size: 1.4em;
+    color: #764ba2;
+    margin-bottom: 10px;
+}
+
+/* Activities */
+.activity-list {
+    list-style: none;
+}
+
+.activity-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f8f9fc;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.activity-list li:hover {
+    background: #e9ecef;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        font-size: 1.2rem;
-        padding: 1rem;
+    .header {
+        padding: 40px 15px;
     }
     
-    header h1 {
-        font-size: 2.6rem;
+    .header h1 {
+        font-size: 2.5em;
     }
     
-    h2 {
-        font-size: 1.9rem;
+    .section {
+        padding: 20px;
+        margin: 20px 0;
     }
     
-    section {
-        padding: 1.2rem;
+    .section h2 {
+        font-size: 1.8em;
     }
-}
-
-/* Optional: subtle flickering cursor effect on header (terminal style) */
-header::after {
-    content: "_";
-    animation: blink 1s step-end infinite;
-    margin-left: 4px;
-    font-size: 2.8rem;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
 }
