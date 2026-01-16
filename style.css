@@ -158,3 +158,96 @@ footer {
   padding: 40px;
   opacity: 0.6;
 }
+
+/* ===== MATRIX BACKGROUND ===== */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* ===== SKILL RADAR ===== */
+.radar {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 50px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34,211,238,0.15), transparent);
+  box-shadow: 0 0 40px rgba(34,211,238,0.5);
+}
+
+/* Rings */
+.ring {
+  position: absolute;
+  border: 1px dashed rgba(34,211,238,0.4);
+  border-radius: 50%;
+}
+
+.r1 { width: 100%; height: 100%; top: 0; left: 0; }
+.r2 { width: 70%; height: 70%; top: 15%; left: 15%; }
+.r3 { width: 40%; height: 40%; top: 30%; left: 30%; }
+
+/* Skill dots */
+.dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #22d3ee;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #22d3ee;
+  animation: pulse 2s infinite;
+}
+
+/* Positions */
+.linux { top: 20%; left: 55%; }
+.network { top: 50%; left: 80%; }
+.cyber { top: 75%; left: 50%; }
+.scripting { top: 40%; left: 25%; }
+
+@keyframes pulse {
+  50% { box-shadow: 0 0 30px #22d3ee; }
+}
+
+
+/* ===== MATRIX RAIN ===== */
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for (let x = 0; x < columns; x++) {
+  drops[x] = 1;
+}
+
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#22d3ee";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+setInterval(drawMatrix, 33);
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
