@@ -1,64 +1,140 @@
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* styles.css - Hacker / Terminal Style Portfolio */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #00ff41;              /* Classic matrix green */
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;            /* Larger for terminal feel */
+    line-height: 1.4;
+    min-height: 100vh;
+    padding: 1rem 1.5rem;
+    background-image: 
+        linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 4px 4px;     /* subtle scanline grid */
 }
 
 header {
-    background-color: #007bff;
-    color: white;
     text-align: center;
-    padding: 20px;
+    padding: 2rem 0 1.5rem;
+    border-bottom: 2px solid #00ff41;
+    margin-bottom: 2rem;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5em;
+    font-size: 3.2rem;
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+    letter-spacing: 4px;
+}
+
+header p {
+    font-size: 1.4rem;
+    margin: 0.4rem 0;
+    opacity: 0.9;
 }
 
 section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    padding: 1.5rem;
+    border: 1px solid #00ff41;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
 }
 
 h2 {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
+    color: #00ff41;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px dashed #00ff41;
+    padding-bottom: 0.5rem;
+    text-shadow: 0 0 8px #00ff41;
+    letter-spacing: 2px;
 }
 
 ul {
     list-style-type: none;
-    padding: 0;
+    padding-left: 1.2rem;
 }
 
 ul li {
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+ul li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: #00ff41;
+    opacity: 0.8;
 }
 
 ul li ul {
-    margin-top: 5px;
-    padding-left: 20px;
+    padding-left: 2rem;
+    margin-top: 0.6rem;
 }
 
-ul li ul li {
-    list-style-type: disc;
+ul li ul li::before {
+    content: "-";
 }
 
-@media (max-width: 600px) {
-    section {
-        padding: 15px;
+a {
+    color: #00ff9d;
+    text-decoration: none;
+    border-bottom: 1px dotted #00ff9d;
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ff9d;
+    background: rgba(0, 255, 157, 0.1);
+}
+
+/* Extra glow on important elements */
+strong {
+    color: #ffffff;
+    text-shadow: 0 0 6px #00ff41;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 1.2rem;
+        padding: 1rem;
     }
     
     header h1 {
-        font-size: 2em;
+        font-size: 2.6rem;
     }
+    
+    h2 {
+        font-size: 1.9rem;
+    }
+    
+    section {
+        padding: 1.2rem;
+    }
+}
+
+/* Optional: subtle flickering cursor effect on header (terminal style) */
+header::after {
+    content: "_";
+    animation: blink 1s step-end infinite;
+    margin-left: 4px;
+    font-size: 2.8rem;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
