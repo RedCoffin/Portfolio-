@@ -1,53 +1,68 @@
-const toggle = document.getElementById("themeToggle");
-const body = document.body;
+// Matrix rain effect
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
 
-toggle.addEventListener("click", () => {
-  body.classList.toggle("light");
-  body.classList.toggle("dark");
-  toggle.textContent = body.classList.contains("dark") ? "🌙" : "☀️";
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function drawMatrix() {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.fillStyle = '#00ff00';
+  ctx.font = fontSize + 'px monospace';
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+setInterval(drawMatrix, 35);
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
 
-/* ===== MATRIX RAIN ===== */
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
+// Theme toggle
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  body.classList.toggle('light');
+  themeToggle.textContent = body.classList.contains('dark') ? '🌙' : '☀️';
+});
 
-const letters = "アカサ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const size = 16;
-const cols = canvas.width / size;
-const drops = Array.from({ length: cols }).fill(1);
+// Scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
 
-function matrix() {
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = "#22d3ee";
-  ctx.font = size + "px monospace";
-
-  drops.forEach((y, i) => {
-    const text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(text, i * size, y * size);
-    if (y * size > canvas.height && Math.random() > 0.975) drops[i] = 0;
-    drops[i]++;
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
   });
-}
-setInterval(matrix, 33);
+}, observerOptions);
 
-/* ===== TERMINAL AUTO TYPING ===== */
-const terminal = document.getElementById("terminal");
-const commands = [
-  "Scanning ports...",
-  "Bypassing firewall...",
-  "Injecting payload...",
-  "Access granted ✔"
-];
-
-let i = 0;
-setInterval(() => {
-  if (i < commands.length) {
-    terminal.innerHTML += `<p>${commands[i]}</p>`;
-    i++;
-  }
-}, 1200);
+document.querySelectorAll('.section').forEach(section => {
+  section.style.opacity = '0';
+  section.style.transform = 'translateY(50px)';
+  section.style.transition = 'all 0.8s ease-out';
+  observer.observe(section);
+});
