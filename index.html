@@ -78,9 +78,6 @@ knowledge in a dynamic IT environment and contribute to innovative cloud-based s
 
 <!-- ########## -->
 
-
-
-
   <section class="section animate">
     <h2>Contact</h2>
     <p>Email: akashmanhas3785@gmail.com</p>
@@ -89,7 +86,21 @@ knowledge in a dynamic IT environment and contribute to innovative cloud-based s
 
   <footer>
     <p>© 2026 Akash Singh Manhas</p>
+    <p id="live-clock" style="margin-top: 6px; font-size: 0.9rem; opacity: 0.75; letter-spacing: 0.05em;"></p>
   </footer>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const day = days[now.getDay()];
+      const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('live-clock').textContent = `${day}, ${date} • ${time}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 
 <script src="script.js"></script>
 </body>
