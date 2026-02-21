@@ -1,3 +1,10 @@
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+  
+
+
 name: Auto Deploy Portfolio
 on: [push]
 jobs:
